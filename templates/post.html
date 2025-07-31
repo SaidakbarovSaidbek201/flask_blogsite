@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <title>{{ post.title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            border: none;
+            border-radius: 16px;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .btn-outline-secondary {
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        p.text-muted.small {
+            margin-bottom: 0;
+        }
+
+        .post-content {
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+    </style>
 </head>
 <body class="bg-light">
 <div class="container py-5">
     <div class="card shadow-sm p-4">
-        <h2 class="text-primary">{{ post.title }}</h2>
-        <p class="text-muted small">
-            👤 {{ post.author }} | 📅 {{ post.date }}
+        <h2 class="text-primary mb-2">{{ post.title }}</h2>
+        <p class="text-muted small mb-3">
+            👤 <strong>{{ post.author }}</strong> &nbsp; | &nbsp; 📅 {{ post.date }}
         </p>
-        <p class="mt-3">{{ post.content }}</p>
-        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary mt-3">⬅️ Orqaga</a>
+        <p class="post-content">{{ post.content }}</p>
+        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary mt-4">⬅️ Orqaga</a>
     </div>
 </div>
 </body>

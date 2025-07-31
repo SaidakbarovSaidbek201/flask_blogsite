@@ -3,28 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Post yozish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-<div class="container py-5">
-    <h2 class="mb-4 text-success">✍️ Yangi post yozish</h2>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-    <form method="post" class="bg-white p-4 shadow-sm rounded">
-        <div class="mb-3">
-            <label class="form-label">Sarlavha</label>
-            <input type="text" name="title" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Muallif (Author)</label>
-            <input type="text" name="author" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Matn</label>
-            <textarea name="content" class="form-control" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-success">✅ Saqlash</button>
-        <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅️ Orqaga</a>
-    </form>
+        .create-card {
+            max-width: 700px;
+            margin: 60px auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            background-color: #fff;
+            padding: 30px;
+        }
+
+        .form-title {
+            font-weight: 600;
+            font-size: 1.7rem;
+            color: #198754;
+        }
+
+        label.form-label {
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 10px 14px;
+        }
+
+        .btn-success {
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #157347;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card create-card">
+        <h2 class="form-title text-center mb-4">✍️ Yangi post yozish</h2>
+
+        <form method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Sarlavha</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Kontent</label>
+                <textarea class="form-control" id="content" name="content" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">📤 Yuborish</button>
+        </form>
+    </div>
 </div>
+
 </body>
 </html>
