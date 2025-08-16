@@ -99,12 +99,12 @@ def register():
         if User.query.filter_by(username=username).first():
             flash('Username already exists')
             return redirect(url_for('register'))
-
-        new_user = User(username=username, password=hashed_pw)
-        db.session.add(new_user)
-        db.session.commit()
-        flash('Registration successful. Please log in.')
-        return redirect(url_for('login'))
+        else:
+            new_user = User(username=username, password=hashed_pw)
+            db.session.add(new_user)
+            db.session.commit()
+            flash('Registration successful. Please log in.')
+            return redirect(url_for('login'))
     return render_template('register.html')
 
 
@@ -145,7 +145,7 @@ def my_posts():
 
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()  # Baza faylini va jadvallarni yaratadi
+        db.create_all()  
     app.run(debug=True)
     # app.run(host='0.0.0.0', port=5000, debug=True)
 
